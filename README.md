@@ -29,7 +29,6 @@ There are five primary sub-directories: `eis`, `photos`, `sans`, `uv_vis`, and `
             |- Plotting_SANS_Data_with_Fits.ipynb
             |- Plotting_SANS_Data.ipynb
             |- Smeared_Data_Reduction.ipynb
-            |- Aug2019_SANS/
             |- Porod_analysis/
                 |- Plotting_Porod_Results.ipynb
                 |- Porod_Analysis.ipynb  
