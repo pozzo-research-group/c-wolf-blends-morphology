@@ -16,13 +16,13 @@ from sasmodels.direct_model import DirectModel
 
 import bumps
 
-sys.path.append('/gscratch/stf/caitwolf/sans_fitting/python_install/sasview/src')
+#sys.path.append('/gscratch/stf/caitwolf/sans_fitting/python_install/sasview/src')
 import sas
 
 import multiprocessing as mp
 
 # sample meta-data
-sample_info = pd.read_csv('../Sample_Info.csv')
+sample_info = pd.read_csv('../../data/sans/Sample_Info.csv')
 
 # helpful meta-data dictionaries
 names = dict(zip(sample_info['Sample'], sample_info['Name']))
@@ -40,7 +40,7 @@ target[403] = 5
 target[404] = 1
 
 # actual volume percentages
-data = np.loadtxt('../../uv_vis/Corrected_wtPercents.csv', delimiter=',', skiprows=1)
+data = np.loadtxt('../../data/uv_vis/Corrected_wtPercents.csv', delimiter=',', skiprows=1)
 actual_vol = {}
 actual_stdev_vol = {}
 for key, tar, act, stdev, act_vol, stdev_vol in data:
@@ -55,7 +55,7 @@ slds = {'RRe-P3HT':0.676,
        'Polystyrene-D8':6.464, # density of 1.13 g/mL
        'Polystyrene-H8':1.426}
 
-data_dir = '../Smeared_Data_20200629/'
+data_dir = '../../data/sans/Smeared_Data_20200629/'
 files = os.listdir(data_dir)
 sans_data = {}
 usans_data = {}
@@ -69,7 +69,7 @@ for file in files:
         
 true_keys = []
 
-true_reads = pd.read_csv('../Fit_Truths.csv')
+true_reads = pd.read_csv('../../data/sans/Fit_Truths.csv')
 true_reads = true_reads.to_numpy()
 mask = true_reads[:,2].astype(bool)
 
@@ -77,15 +77,15 @@ ellipsoid_keys = true_reads[mask,0]
 
 run_keys = list(ellipsoid_keys)
 
-background_files = [file for file in os.listdir('../PS_Fitting/ps_fit_results/power_law_background') if 'json' in file]
+background_files = [file for file in os.listdir('../../data/sans/PS_Fitting/ps_fit_results/power_law_background') if 'json' in file]
 backgrounds = {} # key is sample key, value is ('best', '95% confidence interval')
 for file in background_files:
-    data_read = pd.read_json('../PS_Fitting/ps_fit_results/power_law_background/' + file)
+    data_read = pd.read_json('../../data/sans/PS_Fitting/ps_fit_results/power_law_background/' + file)
     key = int(file.split('_')[0][3:])
     p95 = data_read.loc['p95',str(key) + ' background']
     backgrounds[key] = (data_read.loc['best',str(key) + ' background'], p95)
     
-power_law_fit_info = pd.read_json('../PS_Fitting/ps_fit_results/power_law_porod_exp_scale/PS_porod_exp_scale-err.json')
+power_law_fit_info = pd.read_json('../../data/sans/PS_Fitting/ps_fit_results/power_law_porod_exp_scale/PS_porod_exp_scale-err.json')
 ps_scales = {}
 
 for key, value in power_law_fit_info.items():
@@ -96,7 +96,7 @@ for key, value in power_law_fit_info.items():
         key = int(key.split()[0])
         ps_scales[key] = (value['best'], value['p95'])
         
-guinier_porod_fit = pd.read_json('../PS_Fitting/ps_fit_results/guinier_porod_s_scale/PS_s_scale-err.json')
+guinier_porod_fit = pd.read_json('../../data/sans/PS_Fitting/ps_fit_results/guinier_porod_s_scale/PS_s_scale-err.json')
 rgs = {}
 adjusted_scales = {}
 for key, value in guinier_porod_fit.items():
@@ -125,16 +125,16 @@ avg_scale = np.average([x[0] for y, x in ps_scales.items() if y in rgs.keys()])
 max_scale = np.average([x[1][1] for y, x in ps_scales.items() if y in rgs.keys()])
 min_scale = np.average([x[1][0] for y, x in ps_scales.items() if y in rgs.keys()])
 
-porod_files = [file for file in os.listdir('../Porod_analysis/porod_results') if 'json' in file]
+porod_files = [file for file in os.listdir('../../data/sans/Porod_analysis/porod_results') if 'json' in file]
 
 for file in porod_files:
-    data_read = pd.read_json('../Porod_analysis/porod_results/' + file)
+    data_read = pd.read_json('../../data/sans/Porod_analysis/porod_results/' + file)
     key = int(file.split('_')[0][3:])
     for column, value in data_read.items():
         if 'background' in column:
             backgrounds[key] = (value['best'], value['p95']) 
             
-os.makedirs('fitting_results/ps_ellipsoid_match', exist_ok=True)
+os.makedirs('../data/sans/Sample_Fitting/fitting_results/ps_ellipsoid_match', exist_ok=True)
 run_keys = [key for key in run_keys if key in actual_vol.keys() and key in usans_data.keys()]
             
 def fit_function(
@@ -230,7 +230,7 @@ def fit_function(
     problem=FitProblem(experiment)
     
     result=fit(problem, method='dream', samples=1e6, steps=1000, verbose=True)
-    result.state.save('fitting_results/ps_ellipsoid_match/CMW' + str(key) + '_ps_ellipsoid_state')
+    result.state.save('../data/sans/Sample_Fitting/fitting_results/ps_ellipsoid_match/CMW' + str(key) + '_ps_ellipsoid_state')
     #result.state.show(figfile='fitting_results/ps_ellipsoid/CMW' + str(key) + '_ps_ellipsoid')
     #plt.close()
     #print_array = np.array(['Sample ' + str(key)])
