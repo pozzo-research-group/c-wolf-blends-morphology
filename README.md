@@ -2,7 +2,7 @@
 
 This directory contains all required Python scripts and Jupyter notebooks to analyze the data and reproduce the results presented in the following work:
 
-> <a name="pub"></a> **Conformation of Polythiophene-Polystyrene Blends from Neutron and X-ray Scattering**
+> <a name="pub"></a> **Conformation of Polythiophene-Polystyrene Blends from Neutron and X-ray Scattering** (*in preparation*)
 
 All raw data, fitting results and figures can be found as supplemental material for the above publication. By providing this material, we hope to increase transparency and reproducibility of our results. We encourage the use of the included material for new analysis methods in the future or to apply this analysis to new data. If you reference or utilize any of the provided material, we ask that you please acknowledge the [publication](#pub) (if using the supplemental data file) and this repo.
 
