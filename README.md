@@ -6,13 +6,13 @@ This directory contains all required Python scripts and Jupyter notebooks to ana
 
 > <a name="pub"></a> **Conformation of Polythiophene-Polystyrene Blends from Neutron and X-ray Scattering** (*in preparation*)
 
-All raw data, fitting results and figures can be found as supplemental material for the above publication. By providing this material, we hope to increase transparency and reproducibility of our results. We encourage the use of the included material for new analysis methods in the future or to apply this analysis to new data. If you reference or utilize any of the provided material, we ask that you please acknowledge the [publication](#pub) (if using the supplemental data file) and this repo.
+All raw data, fitting results and figures can be found as supporting information for the above publication. By providing this material, we hope to increase transparency and reproducibility of our results. We encourage the use of the included material for new analysis methods in the future or to apply this analysis to new data. If you reference or utilize any of the provided material, we ask that you please acknowledge the [publication](#pub) (if using the data provided in the supporting information) and this repo.
 
 ## Introduction
 
 In this work, we explore the molecular morphology and self-assembly behavior of conjugted and non-conjugated polymer blends. We utilize methods of small-angle and ultra-small-angle neutron scattering (SANS and USANS, respectively), wide-angle X-ray scattering (WAXS), ultraviolet-visible spectroscopy (UV-Vis), electrochemical impedance spectroscopy (EIS) and visual inspection to qualitatively and quantitatively explore these systems. 
 
-There are five primary sub-directories: `eis`, `photos`, `sans`, `uv_vis`, and `waxs` that include all of the required Python scripts and Jupyter notebooks to complete the analysis presented in the publication cited above. An additional `data` directory is also referenced, but is not provided in this repo. This directory includes all of the raw data and meta-data required for the analyses, fitting results, and generated figures. It is provided as a supplemental file to the [publication](#pub) above. High-level overviews for each of these primary components are discussed later in this README, but the general structure of this directory follows:
+There are five primary sub-directories: `eis`, `photos`, `sans`, `uv_vis`, and `waxs` that include all of the required Python scripts and Jupyter notebooks to complete the analysis presented in the publication cited above. An additional `data` directory is also referenced, but is not provided in this repo. This directory includes all of the raw data and meta-data required for the analyses, fitting results, and generated figures. It is provided as supporting information to the [publication](#pub) above. High-level overviews for each of these primary components are discussed later in this README, but the general structure of this directory follows:
 
     cp-ps-blends/
         |- README.md
