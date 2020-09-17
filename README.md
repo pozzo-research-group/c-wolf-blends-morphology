@@ -1,5 +1,7 @@
 # c-wolf-blends-morphology
 
+[![DOI](https://zenodo.org/badge/293610449.svg)](https://zenodo.org/badge/latestdoi/293610449)
+
 This directory contains all required Python scripts and Jupyter notebooks to analyze the data and reproduce the results presented in the following work:
 
 > <a name="pub"></a> **Conformation of Polythiophene-Polystyrene Blends from Neutron and X-ray Scattering** (*in preparation*)
