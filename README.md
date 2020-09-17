@@ -1,4 +1,4 @@
-# c-wolf-blends
+# c-wolf-blends-morphology
 
 This directory contains all required Python scripts and Jupyter notebooks to analyze the data and reproduce the results presented in the following work:
 
