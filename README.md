@@ -12,13 +12,15 @@ All raw data, fitting results and figures can be found as supporting information
 
 In this work, we explore the molecular morphology and self-assembly behavior of conjugted and non-conjugated polymer blends. We utilize methods of small-angle and ultra-small-angle neutron scattering (SANS and USANS, respectively), wide-angle X-ray scattering (WAXS), ultraviolet-visible spectroscopy (UV-Vis), electrochemical impedance spectroscopy (EIS) and visual inspection to qualitatively and quantitatively explore these systems. 
 
-There are five primary sub-directories: `eis`, `photos`, `sans`, `uv_vis`, and `waxs` that include all of the required Python scripts and Jupyter notebooks to complete the analysis presented in the publication cited above. An additional `data` directory is also referenced, but is not provided in this repo. This directory includes all of the raw data and meta-data required for the analyses, fitting results, and generated figures. It is provided as supporting information to the [publication](#pub) above. High-level overviews for each of these primary components are discussed later in this README, but the general structure of this directory follows:
+There are six primary sub-directories: `dsc`, `conductivity`, `photos`, `sans`, `uv_vis`, and `waxs` that include all of the required Python scripts and Jupyter notebooks to complete the analysis presented in the publication cited above. An additional `data` directory is also referenced, but is not provided in this repo. This directory includes all of the raw data and meta-data required for the analyses, fitting results, and generated figures. It is provided as supporting information to the [publication](#pub) above. High-level overviews for each of these primary components are discussed later in this README, but the general structure of this directory follows:
 
     cp-ps-blends/
         |- README.md
         |- environment.yml
-        |- eis/
+        |- conductivity/
             |- TO BE COMPLETED
+        |- dsc/
+            |- Plotting_DSC_Data.ipynb
         |- photos/
             |- Image_Cropping.ipynb
             |- Image_Plotting.ipynb
@@ -40,8 +42,10 @@ There are five primary sub-directories: `eis`, `photos`, `sans`, `uv_vis`, and `
         |- waxs/
             |- TO BE COMPLETED
         |- data/
-            |- eis/
+            |- conductivity/
                 |- TO BE COMPLETED
+            |- dsc/
+                |- ...
             |- photos/
                 |- photo_figures/
                     |- ...
