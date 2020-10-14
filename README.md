@@ -28,6 +28,8 @@ There are six primary sub-directories: `dsc`, `conductivity`, `photos`, `sans`, 
             |- Plotting_SANS_Data_with_Fits.ipynb
             |- Plotting_SANS_Data.ipynb
             |- Smeared_Data_Reduction.ipynb
+            |- Liquid_Samples/
+                |- ...
             |- Porod_analysis/
                 |- Plotting_Porod_Results.ipynb
                 |- Porod_Analysis.ipynb  
@@ -56,6 +58,8 @@ There are six primary sub-directories: `dsc`, `conductivity`, `photos`, `sans`, 
                 |- Fit_Truths.csv
                 |- Sample_Info.csv
                 |- Aug2019_SANS/
+                    |- ...
+                |- Liquid_Samples/
                     |- ...
                 |- Dec2019_SANS/
                     |- ...
