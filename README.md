@@ -4,7 +4,7 @@
 
 This directory contains all required Python scripts and Jupyter notebooks to analyze the data and reproduce the results presented in the following work:
 
-> <a name="pub"></a> **Conformation of Polythiophene-Polystyrene Blends from Neutron and X-ray Scattering** (*in preparation*)
+> <a name="pub"></a> **Blend Morphology in Polythiophene-Polystyrene Composites from Neutron and X-ray Scattering** (*in preparation*)
 
 All raw data, fitting results and figures can be found as supporting information for the above publication. By providing this material, we hope to increase transparency and reproducibility of our results. We encourage the use of the included material for new analysis methods in the future or to apply this analysis to new data. If you reference or utilize any of the provided material, we ask that you please acknowledge the [publication](#pub) (if using the data provided in the supporting information) and this repo.
 
@@ -140,7 +140,7 @@ Next, install most of the required packages with the following command:
 
     conda install -c conda-forge numpy pandas matplotlib jupyter pyopencl scipy pillow lxml h5py ipykernel nb_conda_kernels pip
     
-### `sasview` and `sasmodels`
+### Installing `sasview` and `sasmodels`
 
 Two additional packages must be installed using `pip`, which should be installed with the Anaconda package or with the previous command. If you still need to install pip, please follow the installation instructions found online. After ensuring `pip` is installed, run the following commands to install the `sasmodels` and `bumps` packages required for SANS data modelling:
 
@@ -152,6 +152,22 @@ You will also need to download the source code for both the `sasmodels` and `sas
     git clone https://github.com/sasview/sasmodels.git
     git clone https://github.com/sasview/sasview.git
     
+#### Adding `sasview` to your python path variable
+
+Many of the `sasmodels` functions require the use of the `sasview` source code. After downloading the source code in the previous step, this can be achieved in one of two ways.
+
+1. (Recommended) Add `/path/to/sasview/src` to your `PYTHONPATH` as needed within each Python script or Jupyter notebook. To do this, utilize the following lines at the beginning of your script where the import statements are made:
+
+	    sys.path.append("/path/to/sasview/src")
+	    import sas
+	    
+2. Permanently add `/path/to/sasview/src` to your operating system's `PYTHONPATH` variable. You can find instructions for your OS at <https://bic-berkeley.github.io/psych-214-fall-2016/using_pythonpath.html>. 
+
+
+
+
+	    
+	    
 
 
 ## Usage
