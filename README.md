@@ -158,17 +158,11 @@ Many of the `sasmodels` functions require the use of the `sasview` source code. 
 
 1. (Recommended) Add `/path/to/sasview/src` to your `PYTHONPATH` as needed within each Python script or Jupyter notebook. To do this, utilize the following lines at the beginning of your script where the import statements are made:
 
+	    import sys
 	    sys.path.append("/path/to/sasview/src")
 	    import sas
 	    
 2. Permanently add `/path/to/sasview/src` to your operating system's `PYTHONPATH` variable. You can find instructions for your OS at <https://bic-berkeley.github.io/psych-214-fall-2016/using_pythonpath.html>. 
-
-
-
-
-	    
-	    
-
 
 ## Usage
 
@@ -193,39 +187,6 @@ Jupyter notebooks (`.ipynb` files) can be described as a more interactive Python
 Alternatively, you can launch a specific jupyter notebook with the command:
 
     jupyter notebook notebook_name.ipynb
-
-<!--
-## Sub-Directory Overviews
-
-This section provides the user with high level descriptions of the five primary sub-directories, their contents, and the general analysis approach. The goal is to provide the user with enough information to help them find specific scripts, notebooks, or figures they may be interested in. However, we encourage the reader to explore the detailed comments and Markdown cells provided within each Python script or Jupyter ntoebook for step-by-step information.
-
-### `photos`
-
-Visual inspection of the samples was one of the first analyses performed after creating the solid films of conjugated polymer and polystyrene blends. The color provided the first clues of conformation changes within the conjugated phase. The original sample photos can be found at `data/photos/photo_files/`. The photos were then cropped using the `Image_Cropping.ipynb` notebook and arranged into the manuscript figures in `Image_Plotting.ipynb`. These figures can be found in the `data/photo_figures/` directory.
-
-### `uv_vis`
-
-Ultraviolet-visible spectroscopy, or UV-Vis, was performed to determine accurate concentrations in solid blends of a conjugated polymer and deuterated polystyrene. Three sections of each solid film were dissolved in chloroboenzene (replicates) and compared against a calibration curve created from solutions with known conjugated polymer and polystyrene amounts. This data was particularly important for modeling of the SANS data.
-
-The raw UV-Vis data collected for both the solid sample replicates and the calibration curve solutions can be found at `data/uv_vis/uv_vis_data/`. Additional calibration curve data, including the known conjugated polymer concentration for each solution and the assignment of each sample to the appropriate calibration curve, is provided in the `data/Cal_Curve_wtPercents/` directory and `data/CalCurveAssign.csv` file, respectively. Finally, the complete analysis process can be found in the `UV-Vis_Analysis.ipynb` notebook. These results, including the calibrated wt% and vol% for each sample, are saved to the `data/Corrected_wtPercents.csv` file, which is referenced by the `sans`, `waxs`, and `eis` analyses.
-
-### `sans`
-
-Small-angle and ultra-small-angle neutron scattering data (SANS and USANS, respectively) were collected for solid blends of a conjugated polymer with deuterated polystyrene to quantitatively describe the phase interfaces as well as the shapes and sizes of formed 3D structures.
-
-In the `data/sans` directory, the raw SANS and USANS can be found in `data/sans/Aug2019_SANS/`, `data/sans/Dec2019_SANS/` and `data/sans/USANS_smeared/` folders. The notebooks `Smeared_Data_Reduction.ipynb` compiles the SANS and USANS data for each sample, trims any noise from the data, and saves the final form in the folder `data/sans/Smeared_Data_20200629/`. Finally, the `Plotting_SANS_Data.ipynb` notebook plots this final data into concentration series of the conjugated polymer phase and saves them in the `SANS_Figures/` directory. The `data/sans/Sample_Info.csv` file is ued by these scripts (and many others) to define information about each sample, including the specific conjugated polymer and matrix polymer used as well as the assigned sample key. All scripts included here utilize these sample keys to easily track samples across all the different analyses. 
-
-The Porod analysis was first performed to describe the interface between conjugated and non-conjugated components of the blend. This analysis can be found at `sans/Porod_analysis/`. Included are two notebooks, the first, `Porod_Analysis.ipynb`, automates the Porod fit for all samples and records that information in the `data/sans/Porod_analysis/porod_results/` directory. The second, `Plotting_Porod_Results.ipynb`, plots these fits (and the extracted data) and saves them in the `data/sans/Porod_analysis/porod_figures/` directory. 
-
-A combined model was fit to all SANS/USANS profiles to account for both the polystyrene and conjugated polymer phases (more information can be found in the manuscript regarding these models). First, the polystyrene contribution was captured by performing simultaneous fits of the pure polystyrene control samples using the Guinier-Porod model. These results can be found in the `sans/PS_Fitting/` directory. The `Polystyrene_Fits.ipynb` notebook automates this fitting process, saving the results in sub-directories of the `data/sans/PS_Fitting/ps_fit_results/` directory. The fitting process was broken down into multiple steps, as discussed more thoroughly in the notebook. The `Plotting_PS_Fits.ipynb` notebook then plots these final fits, saving them to the `data/sans/PS_Fitting/ps_fit_results/figures` directory.
-
-All combined fitting procedures can be found in the `sans/Sample_Fitting/` directory. In the `data/sans` directory, the `Fit_Truths.csv` file is referenced by these fitting scripts to determine which samples need to be fit with specific combined models. After the fits are completed and evaluated manually by the others, the final combined model for each sample was recorded in the `Fit_Finals.csv` file in the `data/sans` directory. [TO BE COMPLETED ONCE WE NARROW THESE DOWN].
-
-### `waxs`
-
-
-### `eis`
--->
 
     
     
