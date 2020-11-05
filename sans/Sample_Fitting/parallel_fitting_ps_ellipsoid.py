@@ -55,6 +55,7 @@ slds = {'RRe-P3HT':0.676,
        'Polystyrene-D8':6.464, # density of 1.13 g/mL
        'Polystyrene-H8':1.426}
 
+# loading data for fitting
 data_dir = '../../data/sans/Smeared_Data_20200629/'
 files = os.listdir(data_dir)
 sans_data = {}
@@ -66,7 +67,8 @@ for file in files:
     elif 'SANS' in file:
         key = int(file.split('_')[0][3:])
         sans_data[key] = load_data(data_dir + file)
-        
+
+# filtering which samples to fit with ellipsoid model
 true_keys = []
 
 true_reads = pd.read_csv('../../data/sans/Fit_Truths.csv')
@@ -77,6 +79,7 @@ ellipsoid_keys = true_reads[mask,0]
 
 run_keys = list(ellipsoid_keys)
 
+# loading polystyrene background information
 background_files = [file for file in os.listdir('../../data/sans/PS_Fitting/ps_fit_results/power_law_background') if 'json' in file]
 backgrounds = {} # key is sample key, value is ('best', '95% confidence interval')
 for file in background_files:
@@ -84,7 +87,7 @@ for file in background_files:
     key = int(file.split('_')[0][3:])
     p95 = data_read.loc['p95',str(key) + ' background']
     backgrounds[key] = (data_read.loc['best',str(key) + ' background'], p95)
-    
+
 power_law_fit_info = pd.read_json('../../data/sans/PS_Fitting/ps_fit_results/power_law_porod_exp_scale/PS_porod_exp_scale-err.json')
 ps_scales = {}
 
