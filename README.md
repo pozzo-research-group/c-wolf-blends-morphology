@@ -4,7 +4,7 @@
 
 This directory contains all required Python scripts and Jupyter notebooks to analyze the data and reproduce the results presented in the following work:
 
-> <a name="pub"></a> **Blend Morphology in Polythiophene-Polystyrene Composites from Neutron and X-ray Scattering** (*in preparation*)
+> <a name="pub"></a> **Wolf, C. M.; Guio, L., Scheiwiller, S. C., O’Hara, R., Luscombe, C., Pozzo, L. D. *Blend Morphology in Polythiophene-Polystyrene Composites from Neutron and X-ray Scattering* 2020 (*submitted*).**
 
 All raw data, fitting results and figures can be found as supporting information for the above publication. By providing this material, we hope to increase transparency and reproducibility of our results. We encourage the use of the included material for new analysis methods in the future or to apply this analysis to new data. If you reference or utilize any of the provided material, we ask that you please acknowledge the [publication](#pub) (if using the data provided in the supporting information) and this repo.
 
