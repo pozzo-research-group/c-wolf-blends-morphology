@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "c-wolf-blends-morphology"
+type: software
+authors:
+  - name: "Pozzo Research Group, University of Washington"
+repository-code: "https://github.com/pozzo-research-group/c-wolf-blends-morphology"
+url: "https://pozzorg.com"
+preferred-citation:
+  type: article
+  title: "Blend Morphology in Polythiophene–Polystyrene Composites from Neutron and X-ray Scattering"
+  authors:
+    - family-names: "Wolf"
+      given-names: "Caitlyn M."
+    - family-names: "Guio"
+      given-names: "Lorenzo"
+    - family-names: "Scheiwiller"
+      given-names: "Sage C."
+    - family-names: "O’Hara"
+      given-names: "Ryan P."
+    - family-names: "Luscombe"
+      given-names: "Christine K."
+    - family-names: "Pozzo"
+      given-names: "Lilo D."
+  journal: "Macromolecules"
+  year: 2021
+  volume: "54"
+  issue: "6"
+  start: "2960"
+  end: "2978"
+  doi: "10.1021/acs.macromol.0c02512"
